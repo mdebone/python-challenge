@@ -1,35 +1,140 @@
-Import os
-Import csv
-Import math
-Import statistics
-
-Budget_data = os.path.join('C:\Users\mdebo\DataClass\python-challenge\PyBank\Resources', 'Resources', 'budget_data.csv')
-
-# Dictionary to store budget data
-budget_dictionary = { 
-    “date” : “Jan-2010”,
-    “profit_Loss”: “867884”
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "3a609ed9-aa9b-472a-a87f-e7531a341ab6",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "FileNotFoundError",
+     "evalue": "[Errno 2] No such file or directory: 'DataClass\\\\python-challenge\\\\PyPoll\\\\Resources\\\\election_data.csv'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[1;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[1;31mFileNotFoundError\u001b[0m                         Traceback (most recent call last)",
+      "\u001b[1;32m<ipython-input-1-d24ef234c545>\u001b[0m in \u001b[0;36m<module>\u001b[1;34m\u001b[0m\n\u001b[0;32m      5\u001b[0m \u001b[0melection_data\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mPath\u001b[0m\u001b[1;33m(\u001b[0m\u001b[1;34m\"DataClass/python-challenge/PyPoll/Resources/election_data.csv\"\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m      6\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n\u001b[1;32m----> 7\u001b[1;33m \u001b[1;32mwith\u001b[0m \u001b[0mopen\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0melection_data\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mnewline\u001b[0m\u001b[1;33m=\u001b[0m\u001b[1;34m\"\"\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mencoding\u001b[0m\u001b[1;33m=\u001b[0m\u001b[1;34m\"utf-8\"\u001b[0m\u001b[1;33m)\u001b[0m \u001b[1;32mas\u001b[0m \u001b[0mcsv_file\u001b[0m\u001b[1;33m:\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0m\u001b[0;32m      8\u001b[0m     \u001b[0mcsvreader\u001b[0m \u001b[1;33m=\u001b[0m \u001b[0mcsv\u001b[0m\u001b[1;33m.\u001b[0m\u001b[0mreader\u001b[0m\u001b[1;33m(\u001b[0m\u001b[0mcsvf_file\u001b[0m\u001b[1;33m,\u001b[0m \u001b[0mdelimiter\u001b[0m\u001b[1;33m=\u001b[0m\u001b[1;34m','\u001b[0m\u001b[1;33m)\u001b[0m\u001b[1;33m\u001b[0m\u001b[1;33m\u001b[0m\u001b[0m\n\u001b[0;32m      9\u001b[0m \u001b[1;33m\u001b[0m\u001b[0m\n",
+      "\u001b[1;31mFileNotFoundError\u001b[0m: [Errno 2] No such file or directory: 'DataClass\\\\python-challenge\\\\PyPoll\\\\Resources\\\\election_data.csv'"
+     ]
+    }
+   ],
+   "source": [
+    "import os \n",
+    "import csv\n",
+    "from pathlib import Path\n",
+    "\n",
+    "election_data = Path(\"DataClass/python-challenge/PyPoll/Resources/election_data.csv\")\n",
+    "\n",
+    "with open(election_data, newline=\"\", encoding=\"utf-8\") as csv_file:\n",
+    "    csvreader = csv.reader(csvf_file, delimiter=',')\n",
+    "    \n",
+    "    csv_header = next(csvreader)\n",
+    "    \n",
+    "    # Lists to store data\n",
+    "    total_votes = 0\n",
+    "    candidate_list = []\n",
+    "    candidate_percent = []\n",
+    "    candidate_absolute = 0\n",
+    "    \n",
+    "    # iterate thru rows\n",
+    "    for row in csvreader:\n",
+    "        \n",
+    "        # read each column to get totals\n",
+    "        votes.append(column[0])\n",
+    "        candidates.append(column[2])\n",
+    "    \n",
+    "    total_votes = (len(votes))\n",
+    "    print(f\"Total Votes: {total_votes}\")\n",
+    "          \n",
+    "    # Pull candidates from listed summary table\n",
+    "    Khan = int(candidate_list.count(\"Khan\"))\n",
+    "    Correy = int(candidate_list.count(\"Correy\"))\n",
+    "    Li = int(candidate_list.count(\"Li\"))\n",
+    "    #OTooley\".strip(')\n",
+    "    #O'Tooley = int(strip(')(candidate_list.count(\"O'Tooley\")))          \n",
+    "    OTooley = int(candidate_list.count(\"OTooley\"))\n",
+    "    \n",
+    "    # Pull Candidate vote percentage\n",
+    "    Khan_percent = ((Khan/total_votes)*100)\n",
+    "    Correy_percent = ((Correy/total_votes)*100)\n",
+    "    Li_percent = ((Li/total_votes)*100)\n",
+    "    OTooley_percent = ((OTooley/total_votes)*100)\n",
+    "    \n",
+    "    # Print name, vote percent, absolute count\n",
+    "    print(f\"Khan: {Khan_percent}% ({Khan})\")\n",
+    "    print(f\"Correy: {Correy_percent}% ({Correy})\")\n",
+    "    print(f\"Li: {Li_percent}% ({Li})\")\n",
+    "    print(f\"OTooley: {OTooley_percent}% ({OTooley})\")\n",
+    "    \n",
+    "    # define For Loop highest percentage of vote\n",
+    "    if OTooley > Li > Correy > Khan:\n",
+    "            Winner = \"OTooley\"\n",
+    "    elif Li > Correy > Khan > OTooley:\n",
+    "            Winner = \"Li\"\n",
+    "    elif Correy > Khan > OTooley > Li:\n",
+    "            Winner = \"Correy\"\n",
+    "    elif Khan > OTooley > Li > Correy:\n",
+    "            Winner = \"Khan\"\n",
+    "    print(f\"Winner: {Winner}\")\n",
+    "          \n",
+    "# print summary table:\n",
+    "print(\"Election Results\")\n",
+    "print(\"---------------------------\")\n",
+    "print(f\"Total Votes: {total_votes}\")\n",
+    "print(\"---------------------------\")\n",
+    "print(f\"Khan: {Khan_percent}% ({Khan})\")\n",
+    "print(f\"Correy: {Correy_percent}% ({Correy})\")    \n",
+    "print(f\"Li: {Li_percent}% ({Li})\")\n",
+    "print(f\"OTooley: {OTooley_percent}% ({OTooley})\")\n",
+    "print(\"---------------------------\")\n",
+    "print(f\"Winner: {Winner}\")\n",
+    "print(\"---------------------------\")\n",
+    "\n",
+    "# print to analysis file:\n",
+    "\n",
+    "outgoing_electuibt_data = Path(\"DataClass/python-challenge/PyPoll/analyysis/analysis.txt\")\n",
+    "\n",
+    "with open('analysis.txt', 'w') as f:\n",
+    "    f.write('analysis')\n",
+    "    "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "3fc1aa63-3034-4e9f-84d1-bf1ee5d502ab",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a5db7ee4-2911-4971-a29b-4c2c8f0b9bdd",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.8.8"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
 }
-
-# The total number of months included in the dataset
-print(len(budget_dictionary))
-
-# The net total amount of "Profit/Losses" over the entire period
-def total(Profit_Loss):
-    y = 0
-    For x in profit_loss:
-        y + x
-    return y
-
-# Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes
-Def average(profit_loss):
-    i = 0
-    for x in profit_loss:
-        i +=j
-    return y/len(profit_loss)
-
-# The greatest increase in profits (date and amount) over the entire period
-    f = max(profit_loss)
-
-# The greatest decrease in profits (date and amount) over the entire period
-    f = min(profit_loss)
