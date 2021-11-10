@@ -3,5 +3,5 @@ omdb_api_key = "599a01dd"
 nyt_api_key = "D8BcRuwtjSNbGc9MJ8zZDjgLJ58donyw"
 
 #gkey = "YOUR_KEY_HERE"
-google_api_key = "AIzaSyCFJZ0BRBe2aaboU1jH88dxthMfPcDSK1g"
+google_api_key = "AIzaSyApRvuRzrog0JiZnEc4BLmguV-tnWsuLrs"
 census_api_key = "bcd6643c81025995f435ee6ad9cc4b20b508c059"
