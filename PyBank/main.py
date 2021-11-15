@@ -1,7 +1,7 @@
 import os
 import csv
  
-budget_data = os.path.join('PyBank','Resources','budget_data.csv')
+budget_data = os.path.join('Resources','budget_data.csv')
  
  # Lists to store data
 months = []
@@ -57,19 +57,22 @@ with open(budget_data, newline="", encoding='utf-8') as csv_file:
     # average change in profit losses in a month to month basis
     mean_avg_change = sum(profit_losses)/len(profit_losses)
  
- 
 # print summary table:
-print("Financial Analysis")
-print("----------------------")
-print(f"Total Months:  {month_count}")
-print(f"Total: ${total_to_date}")
-print(f"Average  Change: ${round(mean_avg_change, 2)}")
-print(f"Greatest Increase in Profits: {max_month},${max_avg_change}")
-print(f"Greatest Decrease in Profits: {min_month},${min_avg_change}")
+analysis = (
+"Financial Analysis"
+"----------------------"
+f"Total Months:  {month_count}"
+f"Total: ${total_to_date}"
+f"Average  Change: ${round(mean_avg_change, 2)}"
+f"Greatest Increase in Profits: {max_month},${max_avg_change}"
+f"Greatest Decrease in Profits: {min_month},${min_avg_change}" )
+
+print(analysis)
+
  
-# print to analysis file:
+# outgoing_budget_data = os.path.join('analysis', 'analysis.txt')
  
-outgoing_budget_data = os.path("python-challenge", "PyBank", "analysis.txt")
- 
-with open('analysis.txt', 'w') as f:
-    f.write('analysis')
+# with open('analysis.txt', 'w') as f:
+
+with open('analysis/analysis.txt', 'w') as f:
+    f.write(analysis)
