@@ -2,7 +2,7 @@ import csv
 from pathlib import Path
 
 
-election_data = Path("PyPoll/Resources/election_data.csv")
+election_data = Path("Resources/election_data.csv")
 
 # Lists to store data
 vote_count = 0
